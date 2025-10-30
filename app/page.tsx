@@ -1,65 +1,94 @@
+"use client";
+
+import { motion } from "framer-motion";
+import {
+  Mail,
+  MapPin,
+  Phone,
+  Facebook,
+  Instagram,
+  Twitter,
+} from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
+    <main className="flex min-h-screen flex-col items-center justify-center bg-black text-white px-6 text-center relative">
+      <div className="absolute w-screen h-screen top-0 left-0 overflow-hidden">
+        <Image fill src={"/pattern.png"} alt="bg" objectFit="cover" />
+      </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-md mr-[20%]"
+      >
+        <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent leading-20">
+          Coming Soon
+        </h1>
+        <p className="text-gray-400 mb-[40%]">
+          We’re working hard to bring you something amazing. Stay tuned for our
+          launch.
+        </p>
+
+        <div className="space-y-3 text-gray-300">
+          <div className="flex justify-center">
+            <MapPin size={24} />
+            <span>
+              Suite 1902, Eco Tower, 1st khoroo, Sukhbaatar District, 14250,
+              Ulaanbaatar, Mongolia
+            </span>
+          </div>
+          <div className="flex items-center justify-center gap-2">
+            <Mail size={18} />
             <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href="mailto:info@example.com"
+              className="hover:text-white transition-colors"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
+              info@tengercapital.mn
+            </a>
+          </div>
+          <div className="flex items-center justify-center gap-2">
+            <Phone size={18} />
             <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href="tel:+97699112233"
+              className="hover:text-white transition-colors"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              +976 7011-0637
+            </a>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="mt-10 flex justify-center gap-6"
+        >
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
+            className="p-2 rounded-full border border-gray-700 hover:border-white transition-colors"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+            <Facebook size={20} />
           </a>
           <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
+            className="p-2 rounded-full border border-gray-700 hover:border-white transition-colors"
           >
-            Documentation
+            <Instagram size={20} />
           </a>
-        </div>
-      </main>
-    </div>
+          <a
+            href="#"
+            className="p-2 rounded-full border border-gray-700 hover:border-white transition-colors"
+          >
+            <Twitter size={20} />
+          </a>
+        </motion.div>
+
+        <p className="text-xs text-gray-600 mt-10">
+          © {new Date().getFullYear()} Tenger Capital
+        </p>
+      </motion.div>
+    </main>
   );
 }
